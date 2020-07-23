@@ -50,10 +50,10 @@ for (var i = 0; i < pacientes.length; i++) {
 // 	console.log("Olá eu fui clicado!");
 // }
 
-
 var botaoAdicionar = document.querySelector("#adicionar-paciente");
-console.log(botaoAdicionar);
+// console.log(botaoAdicionar);
 
-botaoAdicionar.addEventListener("click", function(){
-	console.log("Cliquei no botão");
+botaoAdicionar.addEventListener('click', function(event){
+	event.preventDefault(); // previne o comportamento padrão
+	console.log("Oi, eu sou o botão e fui clicado");
 });
