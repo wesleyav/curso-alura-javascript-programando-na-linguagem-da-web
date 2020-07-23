@@ -20,7 +20,7 @@ for (var i = 0; i < pacientes.length; i++) {
 	var alturaEvalido = true;
 
 	if (peso <= 0 || peso >= 1000) {
-		console.log("Peso inválido");
+		// console.log("Peso inválido");
 		pesoEvalido = false;
 		tdImc.textContent = "Peso inválido!";
 		// paciente.style.backgroundColor = "lightcoral";
@@ -28,7 +28,7 @@ for (var i = 0; i < pacientes.length; i++) {
 	}
 
 	if (altura <= 0 || altura >= 3.00) {
-		console.log("Altura inválida");
+		// console.log("Altura inválida");
 		alturaEvalido = false;
 		tdImc.textContent = "Altura inválida!";
 		// paciente.style.backgroundColor = "lightcoral";
@@ -41,3 +41,19 @@ for (var i = 0; i < pacientes.length; i++) {
 	}
 
 }
+
+// titulo.addEventListener("click", function(){
+// 	console.log("Função anônima!");
+// });
+
+// function mostraMensagem(){
+// 	console.log("Olá eu fui clicado!");
+// }
+
+
+var botaoAdicionar = document.querySelector("#adicionar-paciente");
+console.log(botaoAdicionar);
+
+botaoAdicionar.addEventListener("click", function(){
+	console.log("Cliquei no botão");
+});
