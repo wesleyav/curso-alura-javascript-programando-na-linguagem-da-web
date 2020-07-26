@@ -11,8 +11,6 @@ botaoAdicionar.addEventListener('click', function (event) {
     // Instanciando o objeto
     var paciente = obtemPacienteDoFormulario(form);
 
-    // Criando a nova linha <tr>
-    var pacienteTr = montaTr(paciente);
 
     var erros = validaPaciente(paciente);
     console.log(erros);
@@ -25,18 +23,19 @@ botaoAdicionar.addEventListener('click', function (event) {
         console.log("Paciente inválido!");
         return;
     }
-
-    // Adicionando os elementos criados no <tbody>
-    var tabela = document.querySelector("#tabela-pacientes");
-
-    // Adicionando o <tr> na tabela que já existia
-    tabela.appendChild(pacienteTr);
-
+    adicionaPacienteNaTabela(paciente);
     // Limpa os dados do form após clica no botão adicionar
     form.reset();
     var mensagensErro = document.querySelector("#mensagens-erro");
     mensagensErro.innerHTML = "";
 });
+
+function adicionaPacienteNaTabela(paciente){
+    var pacienteTr = montaTr(paciente);
+    var tabela = document.querySelector("#tabela-pacientes");
+    tabela.appendChild(pacienteTr);
+
+}
 
 function exibeMensagensDeErro(erros) {
     var ul = document.querySelector("#mensagens-erro");
