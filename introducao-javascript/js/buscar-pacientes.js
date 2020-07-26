@@ -9,16 +9,21 @@ botaoAdicionar.addEventListener("click", function () {
 
 
     xhr.addEventListener("load", function () {
-        var resposta = xhr.responseText;
-        var pacientes = JSON.parse(resposta);
+        var erroAjax = document.querySelector("#erro-ajax");
+        erroAjax.classList.add("invisivel");
+        if (xhr.status == 200) {
+            var resposta = xhr.responseText;
+            var pacientes = JSON.parse(resposta);
 
-        pacientes.forEach(function (paciente) {
-            adicionaPacienteNaTabela(paciente);
-        });
+            pacientes.forEach(function (paciente) {
+                adicionaPacienteNaTabela(paciente);
+            });
+        } else {
+            console.log(xhr.status);
+            console.log(xhr.responseText);
 
+            erroAjax.classList.remove("invisivel");
+        }
     });
-
-
     xhr.send();
-
 });
